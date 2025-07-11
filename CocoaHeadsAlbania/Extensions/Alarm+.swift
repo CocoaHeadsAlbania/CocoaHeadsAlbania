@@ -26,29 +26,3 @@ extension Alarm {
     }
 }
 
-extension Alarm.Schedule {
-    static var twoMinsFromNow: Self {
-        let twoMinsFromNow = Date.now.addingTimeInterval(2 * 60)
-        let time = Alarm.Schedule.Relative.Time(hour: Calendar.current.component(.hour, from: twoMinsFromNow),
-                                                minute: Calendar.current.component(.minute, from: twoMinsFromNow))
-        return .relative(.init(time: time))
-    }
-}
-
-extension TimeInterval {
-    func customFormatted() -> String {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .abbreviated
-        return formatter.string(from: self) ?? self.formatted()
-    }
-}
-
-extension Locale {
-    var orderedWeekdays: [Locale.Weekday] {
-        let days: [Locale.Weekday] = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
-        if let firstDayIdx = days.firstIndex(of: firstDayOfWeek), firstDayIdx != 0 {
-            return Array(days[firstDayIdx...] + days[0..<firstDayIdx])
-        }
-        return days
-    }
-}

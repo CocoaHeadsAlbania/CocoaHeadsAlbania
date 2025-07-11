@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import AlarmKit
+import SwiftUI
 
 
 @Observable class EventsViewModel {
@@ -60,26 +61,39 @@ import AlarmKit
         }
     }
     
+    
     //------------------------------------------------------------
     
-    
+    // Schedules an alarm with an alert only.
     func scheduleAlertOnlyExample() {
+        let alertContent = AlarmPresentation.Alert(title: "Wake Up", stopButton: .stopButton)
         
-        // follow these steps :
-        // create attribures
-        // create configuration
-        // schedule alarm
+        let attributes = AlarmAttributes<EventData>(presentation: AlarmPresentation(alert: alertContent),
+                                                      tintColor: Color.accentColor)
         
-        Task {
-            guard await requestAuthorization() else {
-                print("Not authorized to schedule alarms.")
-                return
-            }
-            // create alarm
-            
-        }
+        let alarmConfiguration = AlarmConfiguration(schedule: .oneMinFromNow, attributes: attributes)
+        
+        scheduleAlarm(id: UUID(), label: "Wake Up", alarmConfiguration: alarmConfiguration)
     }
     
+    //------------------------------------------------------------
+    
+    func scheduleAlarm(id: UUID, label: LocalizedStringResource, alarmConfiguration: AlarmConfiguration<EventData>) {
+        Task {
+            do {
+                guard await requestAuthorization() else {
+                    print("Not authorized to schedule alarms.")
+                    return
+                }
+                let alarm = try await alarmManager.schedule(id: id, configuration: alarmConfiguration)
+                await MainActor.run {
+                    alarmsMap[id] = (alarm, label)
+                }
+            } catch {
+                print("Error encountered when scheduling alarm: \(error)")
+            }
+        }
+    }
     
     //------------------------------------------------------------
     
@@ -115,3 +129,36 @@ import AlarmKit
     
     
 }
+
+//func scheduleAlarm () {
+//    
+//    let countDownDuration = Alarm.CountdownDuration(preAlert: (10 * 60), postAlert: (5 * 60))
+//    
+//    let keynoteDateComponents = DateComponents(
+//        calendar: .current,
+//        year: 2025,
+//        month: 6,
+//        day: 9,
+//        hour: 9,
+//        minute:41)
+//    
+//    let keynoteDate = Calendar.current.date(from: keynoteDateComponents)!
+//    
+//    let scheduleFixed = Alarm.Schedule.fixed(keynoteDate)
+//    
+//    
+//  
+//    let stopButton = AlarmButton.stopButton
+//    let repeatButton = AlarmButton.repeatButton
+//    
+//    let alertPresentation = AlarmPresentation.Alert(
+//        title: "Meetup starting soon!",
+//        stopButton: stopButton,
+//        secondaryButton: repeatButton,
+//        secondaryButtonBehavior: .countdown)
+//    
+//    
+//    let attributes = AlarmAttributes<EventData>(presentation: AlarmPresentation(alert: alertPresentation) , tintColor: Color.green)
+//    
+//    let alarmConfiguration = AlarmConfiguration(countdownDuration: countDownDuration, attributes: attributes)
+//}

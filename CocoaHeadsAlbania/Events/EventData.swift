@@ -9,7 +9,7 @@
 
 import AlarmKit
 
-struct EventData {
+struct EventData: AlarmMetadata {
     let createdAt: Date
     let eventType: EventType?
     

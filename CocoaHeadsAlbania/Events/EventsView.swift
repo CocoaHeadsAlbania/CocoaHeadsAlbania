@@ -31,7 +31,7 @@ struct EventsView: View {
 
         .environment(viewModel)
         .onAppear {
-            //            viewModel.fetchAlarms()
+                        viewModel.fetchAlarms()
         }
         .tint(.accentColor)
         
