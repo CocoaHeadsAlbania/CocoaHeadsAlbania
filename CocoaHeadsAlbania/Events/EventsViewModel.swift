@@ -61,19 +61,73 @@ import SwiftUI
         }
     }
     
+    //------------------------------------------------------------
+    
+    func scheduleAlarm() {
+        
+        let randomEvent = generateRandomEvent()
+        
+        let title = LocalizedStringResource(stringLiteral: randomEvent.eventType.rawValue)
+        
+        let secondaryButtonBehaviour = AlarmPresentation.Alert.SecondaryButtonBehavior.countdown
+        
+        let alertContent = AlarmPresentation.Alert(title: title,
+                                                   stopButton: .stopButton,
+                                                   secondaryButton: .repeatButton,
+                                                   secondaryButtonBehavior: secondaryButtonBehaviour)
+
+        
+        let alarmPresentation = AlarmPresentation(alert: alertContent)
+        
+        let attributes = AlarmAttributes(presentation: alarmPresentation, metadata: randomEvent, tintColor: .red)
+        
+        let id = UUID()
+        
+        let alarmConfiguration = AlarmConfiguration(
+            schedule: .oneMinFromNow,
+            attributes: attributes,
+            stopIntent: StopIntent(alarmID: id.uuidString),
+            secondaryIntent: RepeatIntent(alarmID: id.uuidString))
+        
+        scheduleAlarm(
+            id: id,
+            label: title,
+            alarmConfiguration: alarmConfiguration)
+        
+    }
     
     //------------------------------------------------------------
     
-    // Schedules an alarm with an alert only.
-    func scheduleAlertOnlyExample() {
-        let alertContent = AlarmPresentation.Alert(title: "Wake Up", stopButton: .stopButton)
+    // Schedules an alarm with countdown button.
+    func scheduleCountdownAlertExample() {
         
-        let attributes = AlarmAttributes<EventData>(presentation: AlarmPresentation(alert: alertContent),
-                                                      tintColor: Color.accentColor)
+        let randomEvent = generateRandomEvent()
         
-        let alarmConfiguration = AlarmConfiguration(schedule: .oneMinFromNow, attributes: attributes)
+        let title = LocalizedStringResource(stringLiteral: randomEvent.eventType.rawValue)
         
-        scheduleAlarm(id: UUID(), label: "Wake Up", alarmConfiguration: alarmConfiguration)
+        let alertContent = AlarmPresentation.Alert(title: title,
+                                                   stopButton: .stopButton,
+                                                   secondaryButton: .repeatButton,
+                                                   secondaryButtonBehavior: .countdown)
+        
+        let countdownContent = AlarmPresentation.Countdown(title: "Starting Soon", pauseButton: .pauseButton)
+        
+        let pausedContent = AlarmPresentation.Paused(title: "Paused", resumeButton: .resumeButton)
+        
+        let attributes = AlarmAttributes(presentation: AlarmPresentation(alert: alertContent, countdown: countdownContent, paused: pausedContent),
+                                         metadata: randomEvent,
+                                         tintColor: Color.accentColor)
+        
+        let id = UUID()
+        let alarmConfiguration = AlarmConfiguration(
+            countdownDuration: .init(preAlert: 1 * 60, postAlert: 1 * 60),
+            attributes: attributes,
+            secondaryIntent: RepeatIntent(alarmID: id.uuidString))
+        
+        scheduleAlarm(
+            id: UUID(),
+            label: title,
+            alarmConfiguration: alarmConfiguration)
     }
     
     //------------------------------------------------------------
@@ -127,38 +181,17 @@ import SwiftUI
         }
     }
     
+    //------------------------------------------------------------
+        
     
+    func generateRandomEvent() -> EventData {
+        
+        let allTypes = EventData.EventType.allCases
+    
+        let randomEventType = allTypes.randomElement() ?? .coffee
+        
+        let event = EventData(eventType: randomEventType, createdAt: Date())
+        
+        return event
+    }
 }
-
-//func scheduleAlarm () {
-//    
-//    let countDownDuration = Alarm.CountdownDuration(preAlert: (10 * 60), postAlert: (5 * 60))
-//    
-//    let keynoteDateComponents = DateComponents(
-//        calendar: .current,
-//        year: 2025,
-//        month: 6,
-//        day: 9,
-//        hour: 9,
-//        minute:41)
-//    
-//    let keynoteDate = Calendar.current.date(from: keynoteDateComponents)!
-//    
-//    let scheduleFixed = Alarm.Schedule.fixed(keynoteDate)
-//    
-//    
-//  
-//    let stopButton = AlarmButton.stopButton
-//    let repeatButton = AlarmButton.repeatButton
-//    
-//    let alertPresentation = AlarmPresentation.Alert(
-//        title: "Meetup starting soon!",
-//        stopButton: stopButton,
-//        secondaryButton: repeatButton,
-//        secondaryButtonBehavior: .countdown)
-//    
-//    
-//    let attributes = AlarmAttributes<EventData>(presentation: AlarmPresentation(alert: alertPresentation) , tintColor: Color.green)
-//    
-//    let alarmConfiguration = AlarmConfiguration(countdownDuration: countDownDuration, attributes: attributes)
-//}

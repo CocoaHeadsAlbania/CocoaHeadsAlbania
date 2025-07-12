@@ -8,6 +8,7 @@
 import Foundation
 
 extension TimeInterval {
+    
     func customFormatted() -> String {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .abbreviated

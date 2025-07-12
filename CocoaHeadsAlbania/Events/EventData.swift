@@ -10,15 +10,15 @@
 import AlarmKit
 
 struct EventData: AlarmMetadata {
-    let createdAt: Date
-    let eventType: EventType?
+    var createdAt: Date
+    var eventType: EventType
     
-    init(eventType: EventType? = .coffee, createdAt: Date = Date()) {
+    init(eventType: EventType, createdAt: Date) {
         self.createdAt = createdAt
         self.eventType = eventType
     }
     
-    enum EventType: String, Codable {
+    enum EventType: String, Codable, CaseIterable {
         case meetup
         case workshop
         case coffee

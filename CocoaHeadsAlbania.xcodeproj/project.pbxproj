@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		57CA0BE82E22EC08004CDCB0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CA0BE72E22EC08004CDCB0 /* WidgetKit.framework */; };
+		57CA0BEA2E22EC08004CDCB0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CA0BE92E22EC08004CDCB0 /* SwiftUI.framework */; };
+		57CA0BFB2E22EC09004CDCB0 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 57CA0BE52E22EC08004CDCB0 /* WidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		578937782E1DCEFB00A4D567 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,21 +27,78 @@
 			remoteGlobalIDString = 578937692E1DCEFA00A4D567;
 			remoteInfo = CocoaHeadsAlbania;
 		};
+		57CA0BF92E22EC09004CDCB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 578937622E1DCEFA00A4D567 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57CA0BE42E22EC08004CDCB0;
+			remoteInfo = WidgetExtensionExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		57CA0BFC2E22EC09004CDCB0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				57CA0BFB2E22EC09004CDCB0 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5789376A2E1DCEFA00A4D567 /* CocoaHeadsAlbania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaHeadsAlbania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578937772E1DCEFB00A4D567 /* CocoaHeadsAlbaniaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaHeadsAlbaniaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		578937812E1DCEFB00A4D567 /* CocoaHeadsAlbaniaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaHeadsAlbaniaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57CA0BE52E22EC08004CDCB0 /* WidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		57CA0BE72E22EC08004CDCB0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		57CA0BE92E22EC08004CDCB0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		577C87062E1F1F4A00C9E6EE /* Exceptions for "CocoaHeadsAlbania" folder in "CocoaHeadsAlbania" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				App/Info.plist,
 			);
 			target = 578937692E1DCEFA00A4D567 /* CocoaHeadsAlbania */;
+		};
+		57CA0C002E22EC09004CDCB0 /* Exceptions for "WidgetExtension" folder in "WidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 57CA0BE42E22EC08004CDCB0 /* WidgetExtensionExtension */;
+		};
+		57CA0C072E22FB03004CDCB0 /* Exceptions for "WidgetExtension" folder in "CocoaHeadsAlbania" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				LiveActivity/AlarmControls.swift,
+				LiveActivity/AlarmProgressView.swift,
+				LiveActivity/AlarmTitleView.swift,
+				LiveActivity/BottomView.swift,
+				LiveActivity/ButtonView.swift,
+				LiveActivity/CountdownView.swift,
+				LiveActivity/EventTypeView.swift,
+				LiveActivity/LockScreenView.swift,
+			);
+			target = 578937692E1DCEFA00A4D567 /* CocoaHeadsAlbania */;
+		};
+		57CA0C112E22FDB9004CDCB0 /* Exceptions for "CocoaHeadsAlbania" folder in "WidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIntents/OpenAppIntent.swift,
+				AppIntents/PauseIntent.swift,
+				AppIntents/RepeatIntent.swift,
+				AppIntents/ResumeIntent.swift,
+				AppIntents/StopIntent.swift,
+				Events/EventData.swift,
+			);
+			target = 57CA0BE42E22EC08004CDCB0 /* WidgetExtensionExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -44,6 +107,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				577C87062E1F1F4A00C9E6EE /* Exceptions for "CocoaHeadsAlbania" folder in "CocoaHeadsAlbania" target */,
+				57CA0C112E22FDB9004CDCB0 /* Exceptions for "CocoaHeadsAlbania" folder in "WidgetExtensionExtension" target */,
 			);
 			path = CocoaHeadsAlbania;
 			sourceTree = "<group>";
@@ -56,6 +120,15 @@
 		578937842E1DCEFB00A4D567 /* CocoaHeadsAlbaniaUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CocoaHeadsAlbaniaUITests;
+			sourceTree = "<group>";
+		};
+		57CA0BEB2E22EC08004CDCB0 /* WidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				57CA0C072E22FB03004CDCB0 /* Exceptions for "WidgetExtension" folder in "CocoaHeadsAlbania" target */,
+				57CA0C002E22EC09004CDCB0 /* Exceptions for "WidgetExtension" folder in "WidgetExtensionExtension" target */,
+			);
+			path = WidgetExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -82,6 +155,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57CA0BE22E22EC08004CDCB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57CA0BEA2E22EC08004CDCB0 /* SwiftUI.framework in Frameworks */,
+				57CA0BE82E22EC08004CDCB0 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,6 +173,8 @@
 				5789376C2E1DCEFA00A4D567 /* CocoaHeadsAlbania */,
 				5789377A2E1DCEFB00A4D567 /* CocoaHeadsAlbaniaTests */,
 				578937842E1DCEFB00A4D567 /* CocoaHeadsAlbaniaUITests */,
+				57CA0BEB2E22EC08004CDCB0 /* WidgetExtension */,
+				57CA0BE62E22EC08004CDCB0 /* Frameworks */,
 				5789376B2E1DCEFA00A4D567 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,8 +185,18 @@
 				5789376A2E1DCEFA00A4D567 /* CocoaHeadsAlbania.app */,
 				578937772E1DCEFB00A4D567 /* CocoaHeadsAlbaniaTests.xctest */,
 				578937812E1DCEFB00A4D567 /* CocoaHeadsAlbaniaUITests.xctest */,
+				57CA0BE52E22EC08004CDCB0 /* WidgetExtensionExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		57CA0BE62E22EC08004CDCB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57CA0BE72E22EC08004CDCB0 /* WidgetKit.framework */,
+				57CA0BE92E22EC08004CDCB0 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,10 +209,12 @@
 				578937662E1DCEFA00A4D567 /* Sources */,
 				578937672E1DCEFA00A4D567 /* Frameworks */,
 				578937682E1DCEFA00A4D567 /* Resources */,
+				57CA0BFC2E22EC09004CDCB0 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				57CA0BFA2E22EC09004CDCB0 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5789376C2E1DCEFA00A4D567 /* CocoaHeadsAlbania */,
@@ -176,6 +272,28 @@
 			productReference = 578937812E1DCEFB00A4D567 /* CocoaHeadsAlbaniaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		57CA0BE42E22EC08004CDCB0 /* WidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57CA0BFF2E22EC09004CDCB0 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */;
+			buildPhases = (
+				57CA0BE12E22EC08004CDCB0 /* Sources */,
+				57CA0BE22E22EC08004CDCB0 /* Frameworks */,
+				57CA0BE32E22EC08004CDCB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				57CA0BEB2E22EC08004CDCB0 /* WidgetExtension */,
+			);
+			name = WidgetExtensionExtension;
+			packageProductDependencies = (
+			);
+			productName = WidgetExtensionExtension;
+			productReference = 57CA0BE52E22EC08004CDCB0 /* WidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -198,6 +316,9 @@
 						CreatedOnToolsVersion = 26.0;
 						TestTargetID = 578937692E1DCEFA00A4D567;
 					};
+					57CA0BE42E22EC08004CDCB0 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 				};
 			};
 			buildConfigurationList = 578937652E1DCEFA00A4D567 /* Build configuration list for PBXProject "CocoaHeadsAlbania" */;
@@ -217,6 +338,7 @@
 				578937692E1DCEFA00A4D567 /* CocoaHeadsAlbania */,
 				578937762E1DCEFB00A4D567 /* CocoaHeadsAlbaniaTests */,
 				578937802E1DCEFB00A4D567 /* CocoaHeadsAlbaniaUITests */,
+				57CA0BE42E22EC08004CDCB0 /* WidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -237,6 +359,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5789377F2E1DCEFB00A4D567 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57CA0BE32E22EC08004CDCB0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -267,6 +396,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57CA0BE12E22EC08004CDCB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -279,6 +415,11 @@
 			isa = PBXTargetDependency;
 			target = 578937692E1DCEFA00A4D567 /* CocoaHeadsAlbania */;
 			targetProxy = 578937822E1DCEFB00A4D567 /* PBXContainerItemProxy */;
+		};
+		57CA0BFA2E22EC09004CDCB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57CA0BE42E22EC08004CDCB0 /* WidgetExtensionExtension */;
+			targetProxy = 57CA0BF92E22EC09004CDCB0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -412,7 +553,7 @@
 				DEVELOPMENT_TEAM = 96KLZZ8D6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CocoaHeadsAlbania/Info.plist;
+				INFOPLIST_FILE = CocoaHeadsAlbania/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,7 +590,7 @@
 				DEVELOPMENT_TEAM = 96KLZZ8D6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CocoaHeadsAlbania/Info.plist;
+				INFOPLIST_FILE = CocoaHeadsAlbania/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -552,6 +693,68 @@
 			};
 			name = Release;
 		};
+		57CA0BFD2E22EC09004CDCB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 96KLZZ8D6T;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 CocoaHeads Albania. All rights reserved.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = community.CocoaHeadsAlbania.WidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		57CA0BFE2E22EC09004CDCB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 96KLZZ8D6T;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 CocoaHeads Albania. All rights reserved.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = community.CocoaHeadsAlbania.WidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -587,6 +790,15 @@
 			buildConfigurations = (
 				578937922E1DCEFB00A4D567 /* Debug */,
 				578937932E1DCEFB00A4D567 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57CA0BFF2E22EC09004CDCB0 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57CA0BFD2E22EC09004CDCB0 /* Debug */,
+				57CA0BFE2E22EC09004CDCB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,6 +9,7 @@ import AlarmKit
 import SwiftUI
 
 extension AlarmButton {
+    
     static var openAppButton: Self {
         AlarmButton(text: "Open", textColor: .black, systemImageName: "swift")
     }

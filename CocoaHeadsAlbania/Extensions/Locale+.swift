@@ -9,6 +9,7 @@ import Foundation
 
 
 extension Locale {
+    
     var orderedWeekdays: [Locale.Weekday] {
         let days: [Locale.Weekday] = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
         if let firstDayIdx = days.firstIndex(of: firstDayOfWeek), firstDayIdx != 0 {
