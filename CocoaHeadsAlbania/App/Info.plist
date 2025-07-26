@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>NSAlarmKitUsageDescription</key>
-	<string>We&apos;ll schedule alerts for your events.</string>
+	<string>We'll schedule alerts for your events.</string>
 </dict>
 </plist>

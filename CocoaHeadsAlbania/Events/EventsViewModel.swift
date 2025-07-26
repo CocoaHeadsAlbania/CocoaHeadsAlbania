@@ -11,6 +11,7 @@ import AlarmKit
 import SwiftUI
 
 
+/// The viewmodel that handles setting up the alarm
 @Observable class EventsViewModel {
     
     typealias AlarmConfiguration = AlarmManager.AlarmConfiguration
